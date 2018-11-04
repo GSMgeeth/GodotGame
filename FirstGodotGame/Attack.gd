@@ -6,7 +6,7 @@ func _ready():
 	timer = Timer.new()
 	timer.connect("timeout", self, "tick")
 	add_child(timer)
-	timer.wait_time = 0.5
+	timer.wait_time = 0.1
 	timer.start()
 	
 func tick():

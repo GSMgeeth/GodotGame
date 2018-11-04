@@ -1,10 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://LevelOne.gd" type="Script" id=1]
 [ext_resource path="res://Attack (1).png" type="Texture" id=2]
 [ext_resource path="res://Warrior.gd" type="Script" id=3]
-[ext_resource path="res://jumpAttackTexture.png" type="Texture" id=4]
+[ext_resource path="res://walkingKnight5.png" type="Texture" id=4]
 [ext_resource path="res://Attack.gd" type="Script" id=5]
+[ext_resource path="res://Jump_Attack/Run (1).png" type="Texture" id=6]
+[ext_resource path="res://Jump_Attack/Run (2).png" type="Texture" id=7]
+[ext_resource path="res://Jump_Attack/Run (3).png" type="Texture" id=8]
+[ext_resource path="res://Jump_Attack/Run (4).png" type="Texture" id=9]
+[ext_resource path="res://Jump_Attack/Run (5).png" type="Texture" id=10]
+[ext_resource path="res://Jump_Attack/Run (6).png" type="Texture" id=11]
+[ext_resource path="res://Jump_Attack/Run (7).png" type="Texture" id=12]
+[ext_resource path="res://Jump_Attack/Run (8).png" type="Texture" id=13]
+[ext_resource path="res://Jump_Attack/Run (9).png" type="Texture" id=14]
+[ext_resource path="res://Jump_Attack/Run (10).png" type="Texture" id=15]
+[ext_resource path="res://Jump_Attack/JumpAttack (1).png" type="Texture" id=16]
+[ext_resource path="res://Jump_Attack/JumpAttack (2).png" type="Texture" id=17]
+[ext_resource path="res://Jump_Attack/JumpAttack (3).png" type="Texture" id=18]
+[ext_resource path="res://Jump_Attack/JumpAttack (4).png" type="Texture" id=19]
+[ext_resource path="res://Jump_Attack/JumpAttack (5).png" type="Texture" id=20]
+[ext_resource path="res://Jump_Attack/JumpAttack (6).png" type="Texture" id=21]
+[ext_resource path="res://Jump_Attack/JumpAttack (7).png" type="Texture" id=22]
+[ext_resource path="res://Jump_Attack/JumpAttack (8).png" type="Texture" id=23]
+[ext_resource path="res://Jump_Attack/JumpAttack (9).png" type="Texture" id=24]
+[ext_resource path="res://Jump_Attack/JumpAttack (10).png" type="Texture" id=25]
+[ext_resource path="res://JumpAtack.gd" type="Script" id=26]
+
+[sub_resource type="AtlasTexture" id=1]
+
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 2935, 1414 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "jump_attack",
+"speed": 5.0
+} ]
 
 [node name="WorldRoot" type="Node" index="0"]
 
@@ -21,11 +64,24 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Attack" type="Sprite" parent="." index="1"]
 
-position = Vector2( 210.592, 313.573 )
+visible = false
+position = Vector2( 294.536, 313.573 )
 scale = Vector2( 0.875729, 0.653735 )
-texture = ExtResource( 4 )
-vframes = 3
-hframes = 4
+texture = SubResource( 1 )
+vframes = 2
+hframes = 5
+frame = 1
 script = ExtResource( 5 )
+_sections_unfolded = [ "Animation" ]
+
+[node name="JumpAtack" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 246.85, 312.266 )
+scale = Vector2( 0.801623, 0.756809 )
+frames = SubResource( 2 )
+animation = "run"
+frame = 9
+playing = true
+script = ExtResource( 26 )
 
 
